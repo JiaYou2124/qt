@@ -1,0 +1,9 @@
+D:/1AAXX/Qtproject/wp_demo/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/CMakeFiles/wp_demo.dir
+D:/1AAXX/Qtproject/wp_demo/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/CMakeFiles/edit_cache.dir
+D:/1AAXX/Qtproject/wp_demo/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/CMakeFiles/rebuild_cache.dir
+D:/1AAXX/Qtproject/wp_demo/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/CMakeFiles/list_install_components.dir
+D:/1AAXX/Qtproject/wp_demo/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/CMakeFiles/install.dir
+D:/1AAXX/Qtproject/wp_demo/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/CMakeFiles/install/local.dir
+D:/1AAXX/Qtproject/wp_demo/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/CMakeFiles/install/strip.dir
+D:/1AAXX/Qtproject/wp_demo/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/CMakeFiles/wp_demo_autogen_timestamp_deps.dir
+D:/1AAXX/Qtproject/wp_demo/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/CMakeFiles/wp_demo_autogen.dir

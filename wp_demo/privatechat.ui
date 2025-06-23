@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>privateChat</class>
+ <widget class="QWidget" name="privateChat">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>643</width>
+    <height>418</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">
+
+
+
+
+/* 整体窗口样式 */
+QWidget#privateChat {
+    background-color: #ededed;
+    border-radius: 0px;
+}
+
+/* 消息显示区域样式 */
+QTextEdit#showMsg_te {
+    border: none;
+    background-color: #ededed;
+    font-size: 14px;
+    padding: 10px;
+    color: #333333;
+    font-family: 'Microsoft YaHei', 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.4;
+    selection-background-color: #3498db;
+    selection-color: white;
+}
+
+QTextEdit#showMsg_te:focus {
+    border: none;
+    outline: none;
+}
+
+/* TabWidget 样式 */
+QTabWidget {
+    background-color: #ededed;
+    border: none;
+}
+
+QTabWidget::pane {
+    border: none;
+    background-color: #ededed;
+    margin-top: 0px;
+}
+
+QTabBar::tab {
+    background-color: #f7f7f7;
+    color: #333333;
+    border: 1px solid #d9d9d9;
+    border-bottom: none;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    padding: 8px 16px;
+    margin-right: 1px;
+    font-family: 'Microsoft YaHei', Arial, sans-serif;
+    font-size: 13px;
+    min-width: 60px;
+}
+
+QTabBar::tab:selected {
+    background-color: #ededed;
+    color: #333333;
+    border-bottom: 1px solid #ededed;
+    font-weight: normal;
+}
+
+QTabBar::tab:hover:!selected {
+    background-color: #f0f0f0;
+}
+
+/* 输入框样式 */
+QLineEdit#inputMsg_le {
+    border: 1px solid #d9d9d9;
+    border-radius: 6px;
+    background-color: #ffffff;
+    font-size: 14px;
+    padding: 8px 12px;
+    color: #333333;
+    font-family: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
+    min-height: 20px;
+}
+
+QLineEdit#inputMsg_le:focus {
+    border: 1px solid #07c160;
+    outline: none;
+    background-color: #ffffff;
+}
+
+QLineEdit#inputMsg_le:hover {
+    border-color: #b3b3b3;
+}
+
+/* 发送按钮样式 */
+QPushButton#sendMsg_pb {
+    background-color: #07c160;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: normal;
+    padding: 8px 20px;
+    min-width: 60px;
+    font-family: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
+}
+
+QPushButton#sendMsg_pb:hover {
+    background-color: #06ad56;
+}
+
+QPushButton#sendMsg_pb:pressed {
+    background-color: #059748;
+}
+
+QPushButton#sendMsg_pb:focus {
+    outline: none;
+    border: 1px solid #04843b;
+}
+
+QPushButton#sendMsg_pb:disabled {
+    background-color: #c0c0c0;
+    color: #888888;
+}</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="tab">
+      <attribute name="title">
+       <string>Tab 1</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QTextEdit" name="showMsg_te">
+           <property name="font">
+            <font>
+             <family>Microsoft YaHei</family>
+             <pointsize>-1</pointsize>
+            </font>
+           </property>
+           <property name="tabChangesFocus">
+            <bool>false</bool>
+           </property>
+           <property name="readOnly">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QLineEdit" name="inputMsg_le">
+       <property name="font">
+        <font>
+         <family>Microsoft YaHei</family>
+         <pointsize>-1</pointsize>
+        </font>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="sendMsg_pb">
+       <property name="font">
+        <font>
+         <family>Microsoft YaHei</family>
+         <pointsize>-1</pointsize>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>发送</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

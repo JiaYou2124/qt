@@ -1,0 +1,18 @@
+<RCC>
+    <qresource prefix="/">
+        <file>client.config</file>
+    </qresource>
+    <qresource prefix="/img">
+        <file>img/address book.png</file>
+        <file>img/chat.png</file>
+        <file>img/friend_delete.png</file>
+        <file>img/friend_delete_2.png</file>
+        <file>img/friends_add.png</file>
+        <file>img/me.png</file>
+        <file>img/pepole.png</file>
+        <file>img/background.png</file>
+        <file>img/background2.png</file>
+        <file>img/文件夹.png</file>
+        <file>img/文件.png</file>
+    </qresource>
+</RCC>

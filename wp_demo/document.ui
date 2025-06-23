@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Document</class>
+ <widget class="QWidget" name="Document">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>675</width>
+    <height>415</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* Document组件样式 */
+
+/* 文档列表样式 */
+QListWidget {
+    border: 1px solid #cccccc;
+    border-radius: 15px;
+    background-color: #ffffff;
+    font-size: 14px;
+    outline: none;
+    padding: 8px;
+}
+
+QListWidget::item {
+    padding: 12px 15px;
+    border-bottom: 1px solid #f0f0f0;
+    outline: none;
+    border: none;
+    color: #333333;
+}
+
+QListWidget::item:selected {
+    background-color: #3498db;
+    color: white;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+}
+
+QListWidget::item:hover {
+    background-color: #9dbbfd;
+    color: #2980b9;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+}
+
+QListWidget::item:focus {
+    outline: none;
+    border: none;
+}
+
+/* 左边按钮样式 */
+QPushButton#back_pb,
+#createdir_pb,
+#rename_pb,
+#flushFile_pb{
+    background-color: #00aaff;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 6px;
+    min-width: 100px;
+    min-height: 35px;
+    font-family: 'Microsoft YaHei', Arial, sans-serif;
+}
+
+QPushButton#back_pb:hover,
+#createdir_pb:hover,
+#rename_pb:hover,
+#flushFile_pb:hover {
+    background-color: #55aaff;
+}
+
+QPushButton#back_pb:pressed,
+#createdir_pb:pressed,
+#rename_pb:pressed,
+#flushFile_pb:pressed {
+    background-color: #55aaff;
+}
+
+QPushButton#back_pb:focus,
+#createdir_pb:focus,
+#rename_pb:focus,
+#flushFile_pb:focus {
+    outline: none;
+    border: 2px solid #f39c12;
+}
+
+/* 删除按钮样式 */
+QPushButton#deldir_pb,
+QPushButton#delFile_pb {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 6px 12px;
+    min-width: 100px;
+    min-height: 35px;
+    font-family: 'Microsoft YaHei', Arial, sans-serif;
+}
+
+QPushButton#deldir_pb:hover,
+QPushButton#delFile_pb:hover {
+    background-color: #e73528;
+}
+
+QPushButton#deldir_pb:pressed,
+QPushButton#delFile_pb:pressed {
+    background-color: #e73528;
+}
+
+QPushButton#deldir_pb:focus,
+QPushButton#delFile_pb:focus {
+    outline: none;
+    border: 2px solid #00ff7f;
+}
+
+/* 右边按钮样式 */
+QPushButton#upload_pb,
+#download_pb,
+#shareFile_pb {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 6px 12px;
+    min-width: 100px;
+    min-height: 35px;
+    font-family: 'Microsoft YaHei', Arial, sans-serif;
+}
+
+QPushButton#upload_pb:hover,
+#upload_pb:hover,
+#download_pb:hover,
+#shareFile_pb:hover {
+    background-color: #229954;
+}
+
+QPushButton#upload_pb:pressed,
+#upload_pb:pressed,
+#download_pb:pressed,
+#shareFile_pb:pressed {
+    background-color: #1e8449;
+}
+
+QPushButton#upload_pb:focus,
+#upload_pb:focus,
+#download_pb:focus,
+#shareFile_pb:focus {
+    outline: none;
+    border: 2px solid #58d68d;
+}
+
+/* 整体Widget样式 */
+QWidget {
+    background-color: #f8f9fa;
+    font-family: 'Microsoft YaHei', Arial, sans-serif;
+}</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="back_pb">
+       <property name="font">
+        <font>
+         <family>Microsoft YaHei</family>
+         <pointsize>-1</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>返回</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="flushFile_pb">
+       <property name="font">
+        <font>
+         <family>Microsoft YaHei</family>
+         <pointsize>-1</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>刷新文件夹</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="rename_pb">
+       <property name="font">
+        <font>
+         <family>Microsoft YaHei</family>
+         <pointsize>-1</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>重命名文件</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="createdir_pb">
+       <property name="font">
+        <font>
+         <family>Microsoft YaHei</family>
+         <pointsize>-1</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>创建文件夹</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="deldir_pb">
+       <property name="font">
+        <font>
+         <family>Microsoft YaHei</family>
+         <pointsize>-1</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>删除文件夹</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QListWidget" name="document_lw"/>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QPushButton" name="delFile_pb">
+         <property name="font">
+          <font>
+           <family>Microsoft YaHei</family>
+           <pointsize>-1</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>删除文件</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="upload_pb">
+         <property name="font">
+          <font>
+           <family>Microsoft YaHei</family>
+           <pointsize>-1</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>上传文件</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="download_pb">
+         <property name="font">
+          <font>
+           <family>Microsoft YaHei</family>
+           <pointsize>-1</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>下载文件</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="shareFile_pb">
+         <property name="font">
+          <font>
+           <family>Microsoft YaHei</family>
+           <pointsize>-1</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>分享文件</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
