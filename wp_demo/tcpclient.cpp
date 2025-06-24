@@ -177,6 +177,8 @@ void TcpClient::recvMsg()
             QMessageBox::information(this,"登录",LOGIN_OK);
             OpeWidget::getInstance().show();
             this->hide();
+            //刷新好友
+            OpeWidget::getInstance().getFriend()->flushFriend();
         }
         else if(0 == strcmp(pdu->caData,LOGIN_ONLINEED))
         {

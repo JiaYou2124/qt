@@ -24,7 +24,7 @@ OpeWidget::OpeWidget(QWidget *parent)
     m_pLE->setStyleSheet("QLineEdit"
                          "{"
                          "border: none;"
-                         "background-color: #ffffff;"
+                         "background-color: #e0e0e0;"
                          "}"
                          );
 
