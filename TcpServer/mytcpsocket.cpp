@@ -301,6 +301,7 @@ void MyTcpSocket::recvMsg()
             }
             else
             {
+                qDebug()<<"用户离线";
                 PDU *respdu = mkPDU(0);
                 respdu->uiMsgType = ENUM_MSG_TYPE_PRIVATE_CHAT_RESPOND;
                 strcpy(respdu->caData, "用户离线");

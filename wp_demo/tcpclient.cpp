@@ -293,7 +293,7 @@ void TcpClient::recvMsg()
     }
     case ENUM_MSG_TYPE_PRIVATE_CHAT_RESPOND:
     {
-        QMessageBox::information(this,"对方离线","对方目前处于离线状态");
+        // QMessageBox::information(this,"对方离线","对方目前处于离线状态");
         break;
     }
     case ENUM_MSG_TYPE_GROUP_CHAT_REQUEST:
