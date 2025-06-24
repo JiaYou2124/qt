@@ -8,10 +8,32 @@ OpeWidget::OpeWidget(QWidget *parent)
     : QWidget{parent}
 {
     m_pListW = new QListWidget(this);
+    m_pLE = new QLineEdit(this);
+
+    //设置只读
+    m_pLE->setReadOnly(true);
+    //设置字体大小
+    QFont font = m_pLE->font();
+    font.setPointSize(20);
+    m_pLE->setFont(font);
+    //登录用户
+    QString loginName = TcpClient::getInstance().getLoginName();
+    //显示当前登录用户
+    m_pLE->setText(QString("欢迎：%1").arg(loginName));
+    //取消边框线
+    m_pLE->setStyleSheet("QLineEdit"
+                         "{"
+                         "border: none;"
+                         "background-color: #ffffff;"
+                         "}"
+                         );
+
+    // m_pLE->setFixedSize(80,40);
 
     // 应用导航列表样式
     m_pListW->setStyleSheet(Styles::getNavigationListStyle());
-    m_pListW->setFixedSize(80, 200);
+    // m_pListW->setFixedSize(80, 200);
+    m_pListW->setFixedWidth(80);
     m_pListW->setFocusPolicy(Qt::NoFocus);
 
     QIcon icon(":img/img/chat.png");
@@ -34,11 +56,16 @@ OpeWidget::OpeWidget(QWidget *parent)
     pMain->addWidget(m_pListW);
     pMain->addWidget(m_pSW);
 
+    QVBoxLayout *top = new QVBoxLayout;
+    top->addWidget(m_pLE);
+    top->addLayout(pMain);
 
-    setLayout(pMain);
+
+    setLayout(top);
 
     connect(m_pListW,SIGNAL(currentRowChanged(int))
             ,m_pSW,SLOT(setCurrentIndex(int)));
+
     
     // 设置整体背景样式
     this->setStyleSheet(Styles::getOpeWidgetBackgroundStyle());

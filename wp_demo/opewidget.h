@@ -8,6 +8,7 @@
 #include <QStackedWidget>
 #include <QListWidgetItem>
 #include <QIcon>
+#include <QLineEdit>)
 class Document;
 
 class OpeWidget : public QWidget
@@ -28,6 +29,8 @@ private:
     Document *m_pDocument;
 
     QStackedWidget *m_pSW;
+    QLineEdit *m_pLE;
+
 
 };
 

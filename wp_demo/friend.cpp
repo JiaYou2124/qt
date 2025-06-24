@@ -93,6 +93,9 @@ Friend::Friend(QWidget *parent)
     connect(pMsgSendPB,SIGNAL(clicked(bool))
             ,this,SLOT(groupChat()));
 
+    connect(m_pFriendListWidget,SIGNAL(doubleClicked(QModelIndex))
+            ,this,SLOT(privateChat()));
+
     m_pFriendListWidget->setFocusPolicy(Qt::NoFocus);
 }
 

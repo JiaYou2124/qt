@@ -200,7 +200,7 @@ QString Styles::getOnlineWidgetStyle()
 QString Styles::getNavigationListStyle()
 {
     return "QListWidget { "
-           "background-color: #2c3e50; "
+           "background-color: #3498db; "
            "border: 1px solid #34495e; "
            "border-radius: 8px; "
            "font-size: 15px; "
