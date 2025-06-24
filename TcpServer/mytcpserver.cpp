@@ -41,6 +41,13 @@ void Mytcpserver::resend(const char *name, PDU *pdu)
     }
 }
 
+QList<MyTcpSocket *> Mytcpserver::getMyTcpSockets()
+{
+    return m_tcpSocketList;
+}
+
+
+
 void Mytcpserver::deleteSocket(MyTcpSocket *mysocket)
 {
     QList<MyTcpSocket*>::iterator iter = m_tcpSocketList.begin();

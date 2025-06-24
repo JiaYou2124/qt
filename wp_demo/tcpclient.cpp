@@ -291,6 +291,11 @@ void TcpClient::recvMsg()
         privateChat::getInstance().updataMsg(pdu);
         break;
     }
+    case ENUM_MSG_TYPE_PRIVATE_CHAT_RESPOND:
+    {
+        QMessageBox::information(this,"对方离线","对方目前处于离线状态");
+        break;
+    }
     case ENUM_MSG_TYPE_GROUP_CHAT_REQUEST:
     {
         OpeWidget::getInstance().getFriend()->updataGroupMsg(pdu);

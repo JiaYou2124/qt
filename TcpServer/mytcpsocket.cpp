@@ -284,8 +284,29 @@ void MyTcpSocket::recvMsg()
             qDebug()<<loginName;
             qDebug()<<chatName;
             qDebug()<<(char*)pdu->caMsg;
-
-            Mytcpserver::getInstance().resend(chatName,pdu);
+            // 验证目标用户是否在线
+            bool targetOnline = false;
+            int onlineCount = Mytcpserver::getInstance().getMyTcpSockets().size();
+            for(int i = 0;i<onlineCount;i++)
+            {
+                if(QString(chatName) == Mytcpserver::getInstance().getMyTcpSockets().at(i)->getName())
+                {
+                    targetOnline = true;
+                    break;
+                }
+            }
+            if(targetOnline)
+            {
+                Mytcpserver::getInstance().resend(chatName,pdu);
+            }
+            else
+            {
+                PDU *respdu = mkPDU(0);
+                respdu->uiMsgType = ENUM_MSG_TYPE_PRIVATE_CHAT_RESPOND;
+                strcpy(respdu->caData, "用户离线");
+                write((char*)respdu, respdu->uiPDULen);
+                free(respdu);
+            }
             break;
         }
         case ENUM_MSG_TYPE_GROUP_CHAT_REQUEST:

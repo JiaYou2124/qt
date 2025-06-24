@@ -78,6 +78,9 @@ void privateChat::setChatName(QString strName)
     //获得聊天对象name
     m_strChatName = strName;
     m_strLoginName = TcpClient::getInstance().getLoginName();
+
+    // 设置窗口标题显示聊天对象
+    setWindowTitle(QString("与 %1 的私聊").arg(strName));
 }
 
 void privateChat::updataMsg(const PDU *pdu)

@@ -17,6 +17,8 @@ public:
 
     void resend(const char *name,PDU *pdu);
 
+    QList<MyTcpSocket*> getMyTcpSockets();
+
 public slots:
     void deleteSocket(MyTcpSocket *mysocket);
 
