@@ -36,12 +36,15 @@ OpeWidget::OpeWidget(QWidget *parent)
     m_pListW->setFixedWidth(80);
     m_pListW->setFocusPolicy(Qt::NoFocus);
 
-    QIcon icon(":img/img/chat.png");
-    QListWidgetItem *m_Friend = new QListWidgetItem(icon," ");
+    QIcon chat_icon(":img/img/chat.png");
+    QIcon file_icon(":img/img/文件夹.png");
+    QListWidgetItem *m_Friend = new QListWidgetItem(chat_icon," ");
     m_pListW->setIconSize(QSize(32, 32)); // 设置图标大小
     m_pListW->addItem(m_Friend);
 
-    m_pListW->addItem("文件");
+    QListWidgetItem *m_File = new QListWidgetItem(file_icon," ");
+    m_pListW->setIconSize(QSize(32, 32)); // 设置图标大小
+    m_pListW->addItem(m_File);
 
     m_pFriend = new Friend;
     m_pDocument = new Document;
