@@ -10,6 +10,10 @@ OpeWidget::OpeWidget(QWidget *parent)
     m_pListW = new QListWidget(this);
     m_pLE = new QLineEdit(this);
 
+
+    setWindowFlags(Qt::FramelessWindowHint);     //无边框
+    setAttribute(Qt::WA_TranslucentBackground, false);
+
     //设置只读
     m_pLE->setReadOnly(true);
     //设置字体大小
@@ -88,4 +92,30 @@ OpeWidget &OpeWidget::getInstance()
 {
     static OpeWidget instance;
     return instance;
+}
+// 鼠标按下事件 - 开始拖拽
+void OpeWidget::mousePressEvent(QMouseEvent *event)
+{
+    if(event->button() == Qt::LeftButton)
+    {
+        m_bDragging = true;
+        m_dragPosition = event->globalPosition().toPoint() - frameGeometry().topLeft();
+        event->accept();
+    }
+}
+// 鼠标移动事件 - 拖拽窗口
+void OpeWidget::mouseMoveEvent(QMouseEvent *event)
+{
+    if (event->buttons() & Qt::LeftButton && m_bDragging && !m_bMaximized) {
+        move(event->globalPosition().toPoint() - m_dragPosition);
+        event->accept();
+    }
+}
+// 鼠标释放事件 - 结束拖拽
+void OpeWidget::mouseReleaseEvent(QMouseEvent *event)
+{
+    if (event->button() == Qt::LeftButton) {
+        m_bDragging = false;
+        event->accept();
+    }
 }

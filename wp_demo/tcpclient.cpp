@@ -6,7 +6,7 @@
 #include "privatechat.h"
 #include "document.h"
 #include <QWidget>
-
+#include <QPainter>
 
 TcpClient::TcpClient(QWidget *parent)
     : QWidget(parent)
@@ -22,10 +22,22 @@ TcpClient::TcpClient(QWidget *parent)
     setWindowFlags(Qt::FramelessWindowHint);     //无边框
     setAttribute(Qt::WA_TranslucentBackground, false);
 
+    QStyleOption opt;
+    opt.initFrom(this);
+    QPainter p(this);
+    style()->drawPrimitive(QStyle::PE_Widget,&opt,&p,this); //绘制样式
 
+    QBitmap bmp(this->size());
+    bmp.fill();
+    QPainter painter(&bmp);
 
+    painter.setPen(Qt::NoPen);
+    painter.setBrush(Qt::black);
+    painter.setRenderHint(QPainter::Antialiasing);
+    //设置边框为圆角12px
+    painter.drawRoundedRect(bmp.rect(), 24, 24);
+    setMask(bmp);
 
-    // resize(500,300);
 
     //加载配置文件
     loadConfig();
