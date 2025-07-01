@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/1AAXX/Qtproject/TcpServer",
-      "program": "d:/1AAXX/Qtproject/TcpServer/build/Debug/outDebug",
+      "cwd": "d:/1AAXX/Qtproject/wp_demo",
+      "program": "d:/1AAXX/Qtproject/wp_demo/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

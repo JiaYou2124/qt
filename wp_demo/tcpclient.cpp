@@ -5,6 +5,7 @@
 #include <QSqlQuery>
 #include "privatechat.h"
 #include "document.h"
+#include <QWidget>
 
 
 TcpClient::TcpClient(QWidget *parent)
@@ -18,7 +19,10 @@ TcpClient::TcpClient(QWidget *parent)
     ui->stackedWidget->addWidget(ui->page1);
 
     // ui->stackedWidget->setCurrentWidget(0);
-    // setWindowFlags(Qt::FramelessWindowHint);     //无边框
+    setWindowFlags(Qt::FramelessWindowHint);     //无边框
+    setAttribute(Qt::WA_TranslucentBackground, false);
+
+
 
 
     // resize(500,300);
@@ -474,5 +478,48 @@ void TcpClient::on_go_regist_pb_clicked()
 void TcpClient::on_back_pb_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
+}
+// 鼠标按下事件 - 开始拖拽
+void TcpClient::mousePressEvent(QMouseEvent *event)
+{
+    if(event->button() == Qt::LeftButton)
+    {
+        m_bDragging = true;
+        m_dragPosition = event->globalPosition().toPoint() - frameGeometry().topLeft();
+        event->accept();
+    }
+}
+// 鼠标移动事件 - 拖拽窗口
+void TcpClient::mouseMoveEvent(QMouseEvent *event)
+{
+    if (event->buttons() & Qt::LeftButton && m_bDragging && !m_bMaximized) {
+        move(event->globalPosition().toPoint() - m_dragPosition);
+        event->accept();
+    }
+}
+// 鼠标释放事件 - 结束拖拽
+void TcpClient::mouseReleaseEvent(QMouseEvent *event)
+{
+    if (event->button() == Qt::LeftButton) {
+        m_bDragging = false;
+        event->accept();
+    }
+}
+
+
+
+
+
+
+void TcpClient::on_hide_pb_clicked()
+{
+    // TcpClient::getInstance().close();
+    TcpClient::getInstance().showMinimized(); //最小化窗口
+}
+
+void TcpClient::on_close_pb_clicked()
+{
+    // TcpClient::getInstance().close();
+    TcpClient::getInstance().close(); //关闭程序
 }
 

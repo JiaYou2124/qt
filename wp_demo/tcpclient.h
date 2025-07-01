@@ -11,6 +11,7 @@
 #include "protocol.h"
 #include "opewidget.h"
 #include <QStackedWidget>
+#include <QMouseEvent>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -51,7 +52,15 @@ private slots:
 
     void on_back_pb_clicked();
 
+    void on_hide_pb_clicked();
 
+    void on_close_pb_clicked();
+
+protected:
+    //鼠标事件处理函数
+    void mousePressEvent(QMouseEvent *event) override;          //鼠标点击
+    void mouseMoveEvent(QMouseEvent *event) override;           //鼠标移动
+    void mouseReleaseEvent(QMouseEvent *event) override;        //鼠标释放
 
 private:
     Ui::TcpClient *ui;
@@ -64,5 +73,12 @@ private:
     QString m_loginUserName;
     QString m_strCurPath;
     QFile m_file;
+
+    // 添加窗口拖拽相关变量
+    bool m_bDragging;
+    QPoint m_dragPosition;
+    bool m_bMaximized;
+    QRect m_normalGeometry;
+
 };
 #endif // TCPCLIENT_H
